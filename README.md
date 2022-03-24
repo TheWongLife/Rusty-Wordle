@@ -5,16 +5,16 @@ UIUC CS 128 Honors Final Project - Building Wordle In Rust
 Rusty Wordle
 
 ### Group Member Names & NetIDs:
-Nicholas Wong (nwong27)
-Andrew Yang (ayy2)
-Jason Hu (jasonzh2)
-Minhyung Lee (ml90)
+Nicholas Wong (nwong27) <br />
+Andrew Yang (ayy2) <br />
+Jason Hu (jasonzh2) <br />
+Minhyung Lee (ml90) <br />
 
 ### Project Introduction:
-Description: A version of the popular game Wordle in Rust.
-Goals:
-Objectives:
-Why we chose to work on this project:
+Description: A version of the popular game Wordle in Rust. <br />
+Goals: <br />
+Objectives: <br />
+Why we chose to work on this project: <br />
 
 ### System Overview:
 
