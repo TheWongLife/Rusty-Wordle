@@ -21,7 +21,7 @@ fn main() {
     for i in correct_word.chars() {
         correct_characters.insert(i);
     }
-    println!("Answer: {}", correct_word); //uncomment to find answer
+    println!("[FOR DEMO PURPOSES] Answer: {}", correct_word); //uncomment to find answer
 
     //2d vector contains game data
     let mut game_data = vec![vec!['*'; 5];6];
@@ -38,6 +38,23 @@ fn main() {
         stdin().read_line(&mut input_string);
         input_string = input_string[0..input_string.len()-1].to_string();
         if verbose_is_valid_input(input_string.clone()) {
+            for i in 0..5 {
+                game_data[6-tries][i] = input_string.clone().chars().nth(i).unwrap();
+                if input_string.clone().to_lowercase().chars().nth(i).unwrap() == correct_word.clone().chars().nth(i).unwrap() {
+                    game_data_colored[6-tries][i] = 2; //exact match (character & location)
+                    game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),2);
+                } else if correct_characters.contains(&input_string.clone().to_lowercase().chars().nth(i).unwrap()) {
+                    game_data_colored[6-tries][i] = 1; //location mismatch
+                    game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),1);
+                } else {
+                    game_data_colored[6-tries][i] = 3; //character mismatch
+                    game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),3);
+                }
+            }
+
+            print_game_board(&game_data, &game_data_colored);
+            print_keyboard(&game_character_status);
+            println!("\n========================\n");
             if input_string.clone() == correct_word.clone() {
                 println!("\n========================");
                 if 7 - tries == 1 {
@@ -51,21 +68,6 @@ fn main() {
                 println!("========================\n");
                 return;
             }
-            for i in 0..5 {
-                game_data[6-tries][i] = input_string.clone().chars().nth(i).unwrap();
-                if input_string.clone().to_lowercase().chars().nth(i).unwrap() == correct_word.clone().chars().nth(i).unwrap() {
-                    game_data_colored[6-tries][i] = 2; //exact match (character & location)
-                    game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),2);
-                }
-                else if correct_characters.contains(&input_string.clone().to_lowercase().chars().nth(i).unwrap()) {
-                    game_data_colored[6-tries][i] = 1; //location mismatch
-                    game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),1);
-                }
-            }
-
-            print_game_board(&game_data, &game_data_colored);
-            print_keyboard(&game_character_status);
-            println!("\n========================\n");
             tries -= 1;
         }
     }
@@ -95,8 +97,9 @@ fn print_keyboard(game_character_status: &HashMap<char, i32>) {
             print!("{} ",format!("{}",i).yellow().bold());
         } else if *game_character_status.get(&i).unwrap() == 2 {
             print!("{} ",format!("{}",i).green().bold());
+        } else if *game_character_status.get(&i).unwrap() == 3 {
+            print!("{} ",format!("{}",i).red().bold());
         }
-
         count += 1;
     }
     //10
@@ -119,6 +122,8 @@ fn print_game_board(game_data: &[Vec<char>], game_data_colored: &[Vec<i32>]) {
                 print!("{} ",format!("{}",j).green().bold());
             } else if game_data_colored[i_count][j_count] == 1 {
                 print!("{} ",format!("{}",j).yellow().bold());
+            } else if game_data_colored[i_count][j_count] == 3 {
+                print!("{} ",format!("{}",j).red().bold());
             } else if game_data_colored[i_count][j_count] == 0 {
                 print!("{} ",j);
             }
