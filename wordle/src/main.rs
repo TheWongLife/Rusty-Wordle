@@ -8,7 +8,7 @@ use std::collections::HashMap;
 
 fn main() {
     let crab_emoji = '\u{1F980}';
-    println!("\nWelcome to {} {} {}!\nInstructions:\n", 
+    println!("\nWelcome to {} {} {}!\nInstructions:\n[TODO]", 
         format!("Rusty").truecolor(255, 165, 0).bold(),
         crab_emoji,
         format!("Wordle").green().bold());
@@ -21,7 +21,7 @@ fn main() {
     for i in correct_word.chars() {
         correct_characters.insert(i);
     }
-    println!("{}", correct_word);
+    println!("Answer: {}", correct_word); //uncomment to find answer
 
     //2d vector contains game data
     let mut game_data = vec![vec!['*'; 5];6];
@@ -38,6 +38,19 @@ fn main() {
         stdin().read_line(&mut input_string);
         input_string = input_string[0..input_string.len()-1].to_string();
         if verbose_is_valid_input(input_string.clone()) {
+            if input_string.clone() == correct_word.clone() {
+                println!("\n========================");
+                if 7 - tries == 1 {
+                    println!("{}, you found the word in 1 try \u{1F914}",
+                    format!("Wow").green().bold());
+                } else {
+                    println!("{}, you found the word in {} tries \u{1F389}",
+                        format!("Congratulations").green().bold(),
+                        7 - tries);
+                }
+                println!("========================\n");
+                return;
+            }
             for i in 0..5 {
                 game_data[6-tries][i] = input_string.clone().chars().nth(i).unwrap();
                 if input_string.clone().to_lowercase().chars().nth(i).unwrap() == correct_word.clone().chars().nth(i).unwrap() {
@@ -56,6 +69,10 @@ fn main() {
             tries -= 1;
         }
     }
+    println!("\n========================");
+    println!("The word was {}! You failed this time, but you can try again!", correct_word);
+    println!("========================\n");
+    return;
 }
 
 fn print_keyboard(game_character_status: &HashMap<char, i32>) {
