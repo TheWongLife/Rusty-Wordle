@@ -10,7 +10,8 @@ Andrew Yang (ayy2) <br />
 Jason Hu (jasonzh2) <br />
 
 ### Project Introduction:
-#### Description: A version of the fun & popular game Wordle in Rust. <br />
+#### Description: 
+A version of the fun & popular game Wordle in Rust. <br />
 
 #### Goals, Objectives, & Why we chose to work on this project: <br />
 
