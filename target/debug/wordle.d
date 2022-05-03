@@ -1,0 +1,1 @@
+/home/vagrant/src/Rusty-Wordle/target/debug/wordle: /home/vagrant/src/Rusty-Wordle/src/main.rs /home/vagrant/src/Rusty-Wordle/src/wordle/mod.rs /home/vagrant/src/Rusty-Wordle/src/wordle/wordle.rs /home/vagrant/src/Rusty-Wordle/src/words.rs
