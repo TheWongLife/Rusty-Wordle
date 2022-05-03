@@ -32,7 +32,7 @@ fn main() {
     println!("\n========================\n");
 
     let wordle_game = WordleGame::new();
-    println!("[FOR DEMO PURPOSES] Answer: {}", wordle_game.get_correct_word()); //uncomment to find answer
+    println!("[FOR DEMO PURPOSES] Answer: {}", wordle_game.get_correct_word()); //comment to hide answer
 
     //2d vector contains game data
     let mut game_data = vec![vec!['*'; 5];6];
@@ -46,7 +46,7 @@ fn main() {
     while tries > 0 {
         println!("{} tries left. Enter a valid 5 letter word: ", tries);
         let mut input_string = String::new();
-        stdin().read_line(&mut input_string);
+        stdin().read_line(&mut input_string).expect("Couldn't read input from stdin");
         input_string = input_string[0..input_string.len()-1].to_string();
         if WordleGame::verbose_is_valid_input(input_string.clone()) {
             for i in 0..5 {
