@@ -22,8 +22,7 @@ fn main() {
         format!("Wordle").green().bold(),
         format!("Green").green().bold(),
         format!("Yellow").yellow().bold(),
-        format!("Gray").truecolor(25, 25, 25).bold(),
-        //If anyone knows how to make this gray pls fix
+        format!("Gray").truecolor(128, 128, 128).bold(),
         format!("Lose").red().bold(),
         wong,
         format!("Good Luck!").green().bold(),
