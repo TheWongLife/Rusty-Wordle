@@ -33,7 +33,7 @@ fn main() {
     println!("\n========================\n");
 
     let wordle_game = WordleGame::new();
-    println!("[FOR DEMO PURPOSES] Answer: {}", wordle_game.get_correct_word()); //uncomment to find answer
+    println!("[FOR DEMO PURPOSES] Answer: {}", wordle_game.get_correct_word()); //comment to hide answer
 
     //2d vector contains game data
     let mut game_data = vec![vec!['*'; 5];6];
