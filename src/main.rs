@@ -20,7 +20,11 @@ fn main() {
         format!("Wordle").green().bold(),
         format!("Green").green().bold(),
         format!("Yellow").yellow().bold(),
+<<<<<<< HEAD
         format!("Gray").truecolor(37, 37, 37).bold(),
+=======
+        format!("Gray").truecolor(128, 128, 128).bold(),
+>>>>>>> a1ba2783f50a48e948cf929ccee8c4ffad7d315c
         format!("Lose").red().bold(),
         eyes,
         format!("Good Luck!").green().bold(),
