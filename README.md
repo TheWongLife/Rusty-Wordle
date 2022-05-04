@@ -13,21 +13,24 @@ Jason Hu (jasonzh2) <br />
 #### Description: 
 A version of the fun & popular game Wordle in Rust. <br />
 
-#### Goals, Objectives, & Why we chose to work on this project: <br />
+#### Goals & Objectives: <br />
+Opportunity to incorporate advanced Rust concepts like borrowing, ownership, & structs into implementation. <br />
+Recreate the fun & popular game of Wordle in Rust, where there are 6 tries to guess a 5 letter word. <br />
 
-To apply the concepts & skills of the Rust Programming Language that we learned from the 1st half of the semester to recreate & simulate Wordle to be playable in Rust. <br />
+#### Why we chose to work on this project: <br />
+Overall, it'd provide extra programming experience in the Rust programming language & would make for a fun & interesting final project to end the semester with. <br />
 
 ### System Overview:
 #### Instructions:
 1. Guess a 5 letter word. <br />
 2. Each letter is marked a color after every guess. <br />
-  * Green: The letter is in the answer & in the correct position. <br />
-  * Yellow: The letter is in the answer but not in the correct position. <br />
-  * Grey: The letter is not in the answer at all. <br />
+      - Green: The letter is in the answer & in the correct position. <br />
+      - Yellow: The letter is in the answer but not in the correct position. <br />
+      - Grey: The letter isn't in the answer at all. <br />
 3. You lose if you fail to guess the word in 6 tries. <br />
 
 ### Possible Challenges:
-Players attempting or trying to break the rules of playing Wordle.
+Originally were planning to provide a website UI implementation utilizing CSS & HTML, but opted for a terminal-based output instead. <br />
 
 ### References:
 https://github.com/pmsanford/paudle/tree/main
