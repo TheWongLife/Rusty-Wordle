@@ -31,6 +31,7 @@ Overall, it'd provide extra programming experience in the Rust programming langu
 
 ### Possible Challenges:
 Originally were planning to provide a website UI implementation utilizing CSS & HTML, but opted for a terminal-based output instead. <br />
+Working with CSS, HTML, & JavaScript to create a website hosted UI, along with implementing Wordle in Rust would be much more difficult considering the scope of the project & group member’s experience with web development.
 
 ### References:
 https://github.com/pmsanford/paudle/tree/main
