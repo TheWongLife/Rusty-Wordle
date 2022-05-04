@@ -3,15 +3,12 @@ use colored::Colorize;
 use rand::Rng;
 use std::collections::HashSet;
 use std::collections::HashMap;
-
 pub const TOTAL_TRIES: usize = 6;
-
 #[derive(Debug, Default)]
 pub struct WordleGame {
     correct_word: String,
     correct_characters: std::collections::HashSet<char>
 }
-
 impl WordleGame {
     pub fn new() -> WordleGame {
         let mut rng = rand::thread_rng();
@@ -25,15 +22,12 @@ impl WordleGame {
             correct_characters: correct_characters
         };
     }
-
     pub fn get_correct_word(&self) -> &String {
         return &self.correct_word;
     }
-
     pub fn get_correct_characters(&self) -> &std::collections::HashSet<char> {
         return &self.correct_characters;
     }
-
     pub fn print_keyboard(game_character_status: &HashMap<char, i32>) {
         let order = Vec::from([
             'q','w','e','r','t','y','u','i','o','p',
@@ -47,7 +41,6 @@ impl WordleGame {
             } else if count == 18 {
                 print!("\n    ");
             }
-    
             if *game_character_status.get(&i).unwrap() == 0 {
                 print!("{} ",format!("{}",i).bold());
             } else if *game_character_status.get(&i).unwrap() == 1 {
@@ -60,9 +53,7 @@ impl WordleGame {
             count += 1;
         }
     }
-    
     pub fn print_game_board(game_data: &[Vec<char>], game_data_colored: &[Vec<i32>]) {
-    
         println!("-------{}-------\n", format!("Game Board").green().bold());
         let mut i_count = 0;
         for i in game_data {
@@ -85,7 +76,6 @@ impl WordleGame {
         }
         println!("\n------------------------");
     }
-    
     pub fn verbose_is_valid_input(input: String) -> bool {
         if input.chars().count() != 5 {
             println!("\nYour word must be 5 letters long. Try again!");
@@ -100,7 +90,7 @@ impl WordleGame {
             }
         }
         if !dictionary_words().contains(&input) {
-            println!("\nYour word is not on Wordle's word list. Try again!");
+            println!("\nYour word isn't on Wordle's word list. Try again!");
             println!("\n========================\n");
             return false;
         }

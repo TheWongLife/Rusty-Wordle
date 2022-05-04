@@ -1,41 +1,35 @@
 pub mod words;
 pub mod wordle;
-
 use crate::wordle::wordle::{WordleGame, TOTAL_TRIES};
 use colored::Colorize;
 use std::io::stdin;
 use std::collections::HashMap;
-
 fn main() {
     let crab_emoji = '\u{1F980}';
-    let wong = '\u{1F440}';
+    let eyes = '\u{1F440}';
     let thumbs_up = '\u{1F44D}';
     println!("\nWelcome to {} {} {}!\nInstructions:
-    \nGuess a Five Letter Word!
-    \nAfter Every Guess, Each Letter Is Marked a Color
-    \nThe letter is {} if it is in the answer and in the correct position
-    \nThe letter is {} if it is in the answer but not in the right position
-    \nThe letter is {} if it is not in the answer at all
-    \nIf you Fail to Guess the Word in Six Tries, You {} {}\n{} {}", 
+    \nGuess a 5 Letter Word!
+    \nAfter every guess, each letter is marked a color.
+    \nThe letter is {} if it's in the answer & in the correct position.
+    \nThe letter is {} if it's in the answer but not in the right position.
+    \nThe letter is {} if it's not in the answer at all.
+    \nIf you fail to guess the word in 6 tries, you {} {}\n{} {}", 
         format!("Rusty").truecolor(255, 165, 0).bold(),
         crab_emoji,
         format!("Wordle").green().bold(),
         format!("Green").green().bold(),
         format!("Yellow").yellow().bold(),
-        format!("Gray").truecolor(25, 25, 25).bold(),
-        //If anyone knows how to make this gray pls fix
+        format!("Gray").truecolor(37, 37, 37).bold(),
         format!("Lose").red().bold(),
-        wong,
+        eyes,
         format!("Good Luck!").green().bold(),
         thumbs_up
-
     );
     println!("\n========================\n");
-
     let wordle_game = WordleGame::new();
-    println!("[FOR DEMO PURPOSES] Answer: {}", wordle_game.get_correct_word()); //comment to hide answer
-
-    //2d vector contains game data
+    println!("[For Demo Purposes] Answer: {}", wordle_game.get_correct_word()); //Comment to hide answer
+    //2D vector containing game data.
     let mut game_data = vec![vec!['*'; 5];6];
     let mut game_data_colored = vec![vec![0; 5];6];
     let mut game_character_status = HashMap::from([
@@ -53,17 +47,16 @@ fn main() {
             for i in 0..5 {
                 game_data[6-tries][i] = input_string.clone().chars().nth(i).unwrap();
                 if input_string.clone().to_lowercase().chars().nth(i).unwrap() == wordle_game.get_correct_word().clone().chars().nth(i).unwrap() {
-                    game_data_colored[6-tries][i] = 2; //exact match (character & location)
+                    game_data_colored[6-tries][i] = 2; //Exact match (Character & location)
                     game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),2);
                 } else if wordle_game.get_correct_characters().contains(&input_string.clone().to_lowercase().chars().nth(i).unwrap()) {
-                    game_data_colored[6-tries][i] = 1; //location mismatch
+                    game_data_colored[6-tries][i] = 1; //Location mismatch
                     game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),1);
                 } else {
-                    game_data_colored[6-tries][i] = 3; //character mismatch
+                    game_data_colored[6-tries][i] = 3; //Character mismatch
                     game_character_status.insert(input_string.clone().to_lowercase().chars().nth(i).unwrap(),3);
                 }
             }
-
             WordleGame::print_game_board(&game_data, &game_data_colored);
             WordleGame::print_keyboard(&game_character_status);
             println!("\n========================\n");
@@ -83,7 +76,6 @@ fn main() {
             tries -= 1;
         }
     }
-
     println!("\n========================");
     println!("The word was {}! You failed this time, but you can try again!", wordle_game.get_correct_word());
     println!("========================\n");
