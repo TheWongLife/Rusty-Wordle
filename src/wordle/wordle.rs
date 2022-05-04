@@ -31,9 +31,17 @@ impl WordleGame {
             correct_characters: correct_characters
         };
     }
+    //[get_correct_word]
+    //Getter for the WordleGame's correct_word.
+    //@param '&self' - the WordleGame
+    //@return a string reference of the WordleGame's correct_word
     pub fn get_correct_word(&self) -> &String {
         return &self.correct_word;
     }
+    //[get_correct_characters]
+    //Getter for the WordleGame's correct_characters.
+    //@param '&self' - the WordleGame
+    //@return a HashSet reference of the WordleGame's correct_characters
     pub fn get_correct_characters(&self) -> &std::collections::HashSet<char> {
         return &self.correct_characters;
     }
@@ -98,7 +106,7 @@ impl WordleGame {
     //Checks whether the guess word is a valid guess:
     //    1.) Word must be 5 letters long.
     //    2.) Word must only contain alphabetic characters.
-    //    3.) Word must be a valid english word.
+    //    3.) Word must be a valid English word.
     //@param 'input' - A String representing the player's guess word
     //@return true if the guess word is valid & false otherwise
     pub fn verbose_is_valid_input(input: String) -> bool {
