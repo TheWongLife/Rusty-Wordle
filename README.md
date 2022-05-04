@@ -24,9 +24,9 @@ Overall, it'd provide extra programming experience in the Rust programming langu
 #### Instructions:
 1. Guess a 5 letter word. <br />
 2. Each letter is marked a color after every guess. <br />
-  - Green: The letter is in the answer & in the correct position. <br />
-   - Yellow: The letter is in the answer but not in the correct position. <br />
-    - Grey: The letter isn't in the answer at all. <br />
+      - Green: The letter is in the answer & in the correct position. <br />
+        - Yellow: The letter is in the answer but not in the correct position. <br />
+          - Grey: The letter isn't in the answer at all. <br />
 3. You lose if you fail to guess the word in 6 tries. <br />
 
 ### Possible Challenges:
