@@ -20,11 +20,7 @@ fn main() {
         format!("Wordle").green().bold(),
         format!("Green").green().bold(),
         format!("Yellow").yellow().bold(),
-<<<<<<< HEAD
         format!("Gray").truecolor(37, 37, 37).bold(),
-=======
-        format!("Gray").truecolor(128, 128, 128).bold(),
->>>>>>> a1ba2783f50a48e948cf929ccee8c4ffad7d315c
         format!("Lose").red().bold(),
         eyes,
         format!("Good Luck!").green().bold(),
@@ -33,7 +29,7 @@ fn main() {
     println!("\n========================\n");
     let wordle_game = WordleGame::new();
     println!("[For Demo Purposes] Answer: {}", wordle_game.get_correct_word()); //Comment to hide answer
-    //2D vector containing game data.
+    //2D vector containing game data
     let mut game_data = vec![vec!['*'; 5];6];
     let mut game_data_colored = vec![vec![0; 5];6];
     let mut game_character_status = HashMap::from([
